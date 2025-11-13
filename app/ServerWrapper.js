@@ -8,7 +8,7 @@ export default function ServerWrapper({ children }) {
   useEffect(() => {
     // Function to fetch data
     const fetchData = () => {
-      axios.get("http://localhost:5000/")
+      axios.get(`${process.env.NEXT_PUBLIC_API_URL}/`)
         .then(response => {
           setMessage(response.data.message);
         })
