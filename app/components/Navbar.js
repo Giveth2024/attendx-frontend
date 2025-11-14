@@ -25,13 +25,14 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
         
         {/* Logo */}
-        <Link href="/" className="text-[28px] font-bold text-[#00ff88]" style={glowTextStyle}>
+        <Link href="/dashboard" className="text-[28px] font-bold text-[#00ff88]" style={glowTextStyle}>
           AttendX
         </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8 text-lg">
-          <Link href="/dashboard" className="hover:text-[#00ff88] transition">Dashboard</Link>
+          <Link href="/dashboard" className="p-2 border border-transparent rounded-sm  hover:text-[#00ff88] hover:border-1 hover:border-[#00ff88] transition">Dashboard</Link>
+          <Link href="/courses" className="p-2 border border-transparent rounded-sm hover:text-[#00ff88] hover:border-1 hover:border-[#00ff88] transition">Courses</Link>
         </div>
 
         {/* Mobile menu toggle */}
@@ -47,11 +48,18 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden flex flex-col bg-[#161B22] px-4 pb-4 space-y-4 border-t border-gray-700" style={glowShadowStyle}>
           <Link
-            href="/"
+            href="/dashboard"
             onClick={() => setOpen(false)}
-            className="hover:text-[#00ff88] mt-2.5 transition"
+            className="p-2 border border-transparent rounded-sm hover:text-[#00ff88] hover:border-1 hover:border-[#00ff88] hover:text-[#00ff88] mt-2.5 transition"
           >
             Dashboard
+          </Link>
+          <Link
+            href="/courses"
+            onClick={() => setOpen(false)}
+            className="p-2 border border-transparent rounded-sm hover:text-[#00ff88] hover:border-1 hover:border-[#00ff88] hover:text-[#00ff88] mt-2.5 transition"
+          >
+            Courses
           </Link>
         </div>
       )}
