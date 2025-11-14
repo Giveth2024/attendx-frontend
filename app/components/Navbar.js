@@ -1,0 +1,60 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+
+// Glow effects (same as your Login page)
+const glowShadowStyle = {
+  boxShadow: "0 0 10px #00FF8844",
+};
+
+const glowTextStyle = {
+  textShadow: "0 0 8px #00FF8880",
+};
+
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <nav
+      className="w-full bg-[#0D1117] text-white border-b border-gray-800 sticky top-0 z-50"
+      style={glowShadowStyle}
+    >
+      {/* Wrapper */}
+      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        
+        {/* Logo */}
+        <Link href="/" className="text-[28px] font-bold text-[#00ff88]" style={glowTextStyle}>
+          AttendX
+        </Link>
+
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-8 text-lg">
+          <Link href="/dashboard" className="hover:text-[#00ff88] transition">Dashboard</Link>
+        </div>
+
+        {/* Mobile menu toggle */}
+        <button
+          className="md:hidden text-[#00ff88]"
+          onClick={() => setOpen(!open)}
+        >
+          {open ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {open && (
+        <div className="md:hidden flex flex-col bg-[#161B22] px-4 pb-4 space-y-4 border-t border-gray-700" style={glowShadowStyle}>
+          <Link
+            href="/"
+            onClick={() => setOpen(false)}
+            className="hover:text-[#00ff88] mt-2.5 transition"
+          >
+            Dashboard
+          </Link>
+        </div>
+      )}
+    </nav>
+  );
+}

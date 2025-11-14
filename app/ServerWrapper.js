@@ -28,7 +28,7 @@ export default function ServerWrapper({ children }) {
   }, []); // <- Empty dependency to avoid repeated intervals
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-4">
+    <div className="">
       <div className="p-4 bg-white rounded shadow text-center">
         <h1 className="text-lg font-bold">{message}</h1>
       </div>

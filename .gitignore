@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+#Others
+AttendX Prompt.txt
+/AttendX Students Page UI Design

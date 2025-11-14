@@ -1,4 +1,17 @@
 import "./globals.css";
+import { Lexend, Inter } from "next/font/google";
+import Navbar from "./components/Navbar";
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-lexend",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -7,10 +20,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className="bg-gray-100 text-gray-900 min-h-screen flex flex-col items-center justify-center"
-      >
+    <html lang="en" className={`${lexend.variable} ${inter.variable}`}>
+      <body className="bg-gray-100 text-gray-900 min-h-screen flex flex-col items-center justify-center">
+        <Navbar />
         {children}
       </body>
     </html>
